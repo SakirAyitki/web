@@ -139,11 +139,6 @@ section {
 	-ms-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-.navbar .container {
-	padding-left: 50px;
-	padding-right: 50px;
-}
-
 
 /* Navbar brand (logo) */
 .navbar-brand {
