@@ -1,15 +1,15 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Formdan gelen bilgileri al
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $subject = $_POST['subject'];
-    $message = $_POST['message'];
+    // Formdan gelen verileri al
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $subject = htmlspecialchars($_POST['subject']);
+    $message = htmlspecialchars($_POST['message']);
 
-    // Hedef e-posta adresi
+    // Alıcı e-posta adresi
     $to = "ayitkisakir@gmail.com";
 
-    // E-posta başlıkları
+    // E-posta başlığı
     $headers = "From: " . $email . "\r\n";
     $headers .= "Reply-To: " . $email . "\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mail($to, $subject, $body, $headers)) {
         echo "Mesajınız başarıyla gönderildi.";
     } else {
-        echo "Mesaj gönderilirken bir hata oluştu.";
+        echo "Mesaj gönderilemedi. Lütfen daha sonra tekrar deneyin.";
     }
 }
 ?>
